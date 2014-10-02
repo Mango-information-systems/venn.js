@@ -551,20 +551,15 @@
         }
     }
 
-    venn.drawD3Diagram = function(element, dataset, width, height, parameters) {
+    venn.drawD3Diagram = function(diagram, dataset, width, height, parameters) {
         parameters = parameters || {};
 
         var colours = d3.scale.category10(),
             padding = ('padding' in parameters) ? parameters.padding : 6;
 
         dataset = venn.scaleSolution(dataset, width, height, padding);
+        
         computeTextCenters(dataset, width, height);
-
-        var svg = element.append("svg")
-                .attr("width", width)
-                .attr("height", height);
-
-        var diagram = svg.append( "g" );
 
         var nodes = diagram.append("g").selectAll("circle")
                          .data(dataset)
@@ -586,7 +581,7 @@
                .style("fill", function(d, i) { return colours(i); })
                .call(function (text) { text.each(wrapText); });
 
-        return {'svg' : svg,
+        return {'svg' : diagram,
                 'nodes' : nodes,
                 'circles' : circles,
                 'text' : text };
