@@ -12,7 +12,7 @@ body {
 </head>
 
 <body>
-    <div class="venn"></div>
+    <svg id="venn" width="500" height="500"></svg>
 </body>
 
 <style>
@@ -30,7 +30,7 @@ body {
 }
 </style>
 
-<script src="http://d3js.org/d3.v2.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="../venn.js"></script>
 <script src="./lastfm.jsonp"></script>
 <script>
@@ -38,7 +38,7 @@ body {
 sets = venn.venn(sets, overlaps);
 
 // draw the diagram in the 'venn' div
-var diagram = venn.drawD3Diagram(d3.select(".venn"), sets, 500, 500);
+var diagram = venn.drawD3Diagram(d3.select("#venn"), sets, 500, 500);
 
 // add a tooltip showing the size of each set/intersection
 var tooltip = d3.select("body").append("div")

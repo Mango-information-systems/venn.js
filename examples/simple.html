@@ -12,10 +12,10 @@ body {
 </head>
 
 <body>
-    <div class="simple_example"></div>
+    <svg id="simple_example" width="300" height="300"></svg>
 </body>
 
-<script src="http://d3js.org/d3.v2.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="../venn.js"></script>
 <script>
 // define sets and set set intersections
@@ -26,6 +26,6 @@ var sets = [{label: "A", size: 10}, {label: "B", size: 10}],
 sets = venn.venn(sets, overlaps);
 
 // draw the diagram in the 'simple_example' div
-venn.drawD3Diagram(d3.select(".simple_example"), sets, 300, 300);
+venn.drawD3Diagram(d3.select("#simple_example"), sets, 300, 300);
 </script>
 </html>

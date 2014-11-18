@@ -9,10 +9,11 @@
     <p> An example providing weights on the importance of each intersection area. This
 defines the non-overlapping intersection areas as being unimportant - so that the sets cluster around 
 set '2' here.
-    <div class="weighted_example"></div>
+	</p>
+    <svg id="weighted_example" width="300" height="300"></svg>
 </body>
 
-<script src="http://d3js.org/d3.v2.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="../venn.js"></script>
 <script>
 var sets = [{"label":"0","size":1958},
@@ -43,6 +44,6 @@ var overlaps = [{"id":1,"sets":[2,0],"size":123},
                {"sets":[4,4],"size":0, "weight" : 1e-10}];
 
 sets = venn.venn(sets, overlaps);
-venn.drawD3Diagram(d3.select(".weighted_example"), sets, 300, 300);
+venn.drawD3Diagram(d3.select("#weighted_example"), sets, 300, 300);
 </script>
 </html>

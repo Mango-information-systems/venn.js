@@ -12,10 +12,10 @@ body {
 </head>
 
 <body>
-    <div class="mds"></div>
+    <svg id="mds" width="300" height="300"></svg>
 </body>
 
-<script src="http://d3js.org/d3.v2.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="../venn.js"></script>
 <script src="http://www.benfrederickson.com/images/mds.js"></script>
 <script src="http://www.numericjs.com/lib/numeric-1.2.6.min.js"></script>
@@ -45,7 +45,7 @@ var sets = [{label : 'A', size : 9}, {label : 'B', size: 15},
 sets = venn.venn(sets, overlaps, {layoutFunction: venn.classicMDSLayout})
 
 // draw the diagram in the 'mds' div
-venn.drawD3Diagram(d3.select(".mds"), sets, 300, 300);
+venn.drawD3Diagram(d3.select("#mds"), sets, 300, 300);
 
 
 
